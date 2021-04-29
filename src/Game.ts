@@ -1,27 +1,30 @@
+enum Symbol {
+  X = "X",
+  O = "O",
+}
+
 export class Game {
   private _lastSymbol: string = " ";
   private _board: Board = new Board();
 
-  public Play(symbol: string, x: number, y: number): void {
-    //if first move
-    if (this._lastSymbol == " ") {
-      //if player is X
-      if (symbol == "O") {
-        throw new Error("Invalid first player");
-      }
-    }
-    //if not first move but player repeated
-    else if (symbol == this._lastSymbol) {
-      throw new Error("Invalid next player");
-    }
-    //if not first move but play on an already played tile
-    else if (this._board.TileAt(x, y).Symbol != " ") {
-      throw new Error("Invalid position");
-    }
+  public Play(symbol: Symbol, x: number, y: number): void {
+    this.validateMove(symbol, x, y);
 
     // update game state
     this._lastSymbol = symbol;
     this._board.AddTileAt(symbol, x, y);
+  }
+
+  private validateMove(symbol: Symbol, x: number, y: number) {
+    if (this._lastSymbol == " ") {
+      if (symbol == Symbol.O) {
+        throw new Error("Invalid first player");
+      }
+    } else if (symbol == this._lastSymbol) {
+      throw new Error("Invalid next player");
+    } else if (this._board.TileAt(x, y).Symbol != " ") {
+      throw new Error("Invalid position");
+    }
   }
 
   public isPositionEmpty(x: number, y: number): boolean {
@@ -36,12 +39,13 @@ export class Game {
     );
   }
 
-  public isTheRowFullWithTheSameSymbol(row: number): string  {
+  public isTheRowFullWithTheSameSymbol(row: number): string {
     if (
-        this._board.TileAt(row, 0)!.Symbol == this._board.TileAt(row, 1)!.Symbol &&
-        this._board.TileAt(row, 2)!.Symbol == this._board.TileAt(row, 1)!.Symbol
+      this._board.TileAt(row, 0)!.Symbol ==
+        this._board.TileAt(row, 1)!.Symbol &&
+      this._board.TileAt(row, 2)!.Symbol == this._board.TileAt(row, 1)!.Symbol
     ) {
-      return this._board.TileAt(row, 0)!.Symbol ;
+      return this._board.TileAt(row, 0)!.Symbol;
     }
 
     return " ";
@@ -49,15 +53,15 @@ export class Game {
 
   public Winner(): string {
     if (this.isRowTaken(0)) {
-      return this.isTheRowFullWithTheSameSymbol(0)
+      return this.isTheRowFullWithTheSameSymbol(0);
     }
 
     if (this.isRowTaken(1)) {
-      return this.isTheRowFullWithTheSameSymbol(1)
+      return this.isTheRowFullWithTheSameSymbol(1);
     }
 
     if (this.isRowTaken(2)) {
-      return this.isTheRowFullWithTheSameSymbol(2)
+      return this.isTheRowFullWithTheSameSymbol(2);
     }
 
     return " ";
