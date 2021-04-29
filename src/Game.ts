@@ -24,12 +24,16 @@ export class Game {
     this._board.AddTileAt(symbol, x, y);
   }
 
+  public isPositionEmpty (x: number, y: number): boolean {
+      return this._board.TileAt(x, y)!.Symbol != " "
+  }
+
+
   public Winner(): string {
     //if the positions in first row are taken
-    if (
-      this._board.TileAt(0, 0)!.Symbol != " " &&
-      this._board.TileAt(0, 1)!.Symbol != " " &&
-      this._board.TileAt(0, 2)!.Symbol != " "
+    if ( this.isPositionEmpty(0,0) &&
+         this.isPositionEmpty(0,1) &&
+         this.isPositionEmpty(0,2)
     ) {
       //if first row is full with same symbol
       if (
@@ -41,10 +45,9 @@ export class Game {
     }
 
     //if the positions in first row are taken
-    if (
-      this._board.TileAt(1, 0)!.Symbol != " " &&
-      this._board.TileAt(1, 1)!.Symbol != " " &&
-      this._board.TileAt(1, 2)!.Symbol != " "
+    if ( this.isPositionEmpty(1,0) &&
+        this.isPositionEmpty(1,1) &&
+        this.isPositionEmpty(1,2)
     ) {
       //if middle row is full with same symbol
       if (
@@ -56,10 +59,9 @@ export class Game {
     }
 
     //if the positions in first row are taken
-    if (
-      this._board.TileAt(2, 0)!.Symbol != " " &&
-      this._board.TileAt(2, 1)!.Symbol != " " &&
-      this._board.TileAt(2, 2)!.Symbol != " "
+    if ( this.isPositionEmpty(2,0) &&
+        this.isPositionEmpty(2,1) &&
+        this.isPositionEmpty(2,2)
     ) {
       //if middle row is full with same symbol
       if (
