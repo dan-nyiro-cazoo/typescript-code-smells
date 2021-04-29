@@ -33,8 +33,7 @@ msbuild.wrn
 # Visual Studio 2015
 .vs/
 
-TypeScript/node_modules/
-TypeScript/dist/
-TypeScript/package-lock.json
+node_modules/
+dist/
 
 */.idea/*
