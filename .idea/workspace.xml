@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d6dda7-1234-4485-a530-b46d515b6d47" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1619689013090</updated>
       <workItem from="1619689014297" duration="509000" />
-      <workItem from="1619690219883" duration="1043000" />
+      <workItem from="1619690219883" duration="1962000" />
     </task>
     <servers />
   </component>
@@ -79,5 +80,9 @@
       <screen x="0" y="25" width="2560" height="1330" />
     </state>
     <state width="2518" height="378" key="GridCell.Tab.0.right/-1440.820.1440.875/0.25.2560.1330@0.25.2560.1330" timestamp="1619690401193" />
+    <state x="945" y="328" width="670" height="676" key="search.everywhere.popup" timestamp="1619691778602">
+      <screen x="0" y="25" width="2560" height="1330" />
+    </state>
+    <state x="945" y="328" width="670" height="676" key="search.everywhere.popup/-1440.820.1440.875/0.25.2560.1330@0.25.2560.1330" timestamp="1619691778602" />
   </component>
 </project>

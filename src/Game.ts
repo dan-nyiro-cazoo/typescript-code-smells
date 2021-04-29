@@ -36,35 +36,28 @@ export class Game {
     );
   }
 
+  public isTheRowFullWithTheSameSymbol(row: number): string  {
+    if (
+        this._board.TileAt(row, 0)!.Symbol == this._board.TileAt(row, 1)!.Symbol &&
+        this._board.TileAt(row, 2)!.Symbol == this._board.TileAt(row, 1)!.Symbol
+    ) {
+      return this._board.TileAt(row, 0)!.Symbol ;
+    }
+
+    return " ";
+  }
+
   public Winner(): string {
     if (this.isRowTaken(0)) {
-      //if first row is full with same symbol
-      if (
-        this._board.TileAt(0, 0)!.Symbol == this._board.TileAt(0, 1)!.Symbol &&
-        this._board.TileAt(0, 2)!.Symbol == this._board.TileAt(0, 1)!.Symbol
-      ) {
-        return this._board.TileAt(0, 0)!.Symbol;
-      }
+      return this.isTheRowFullWithTheSameSymbol(0)
     }
 
     if (this.isRowTaken(1)) {
-      //if middle row is full with same symbol
-      if (
-        this._board.TileAt(1, 0)!.Symbol == this._board.TileAt(1, 1)!.Symbol &&
-        this._board.TileAt(1, 2)!.Symbol == this._board.TileAt(1, 1)!.Symbol
-      ) {
-        return this._board.TileAt(1, 0)!.Symbol;
-      }
+      return this.isTheRowFullWithTheSameSymbol(1)
     }
 
     if (this.isRowTaken(2)) {
-      //if middle row is full with same symbol
-      if (
-        this._board.TileAt(2, 0)!.Symbol == this._board.TileAt(2, 1)!.Symbol &&
-        this._board.TileAt(2, 2)!.Symbol == this._board.TileAt(2, 1)!.Symbol
-      ) {
-        return this._board.TileAt(2, 0)!.Symbol;
-      }
+      return this.isTheRowFullWithTheSameSymbol(2)
     }
 
     return " ";
